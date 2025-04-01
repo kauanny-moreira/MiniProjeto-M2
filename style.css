@@ -1,0 +1,74 @@
+body{
+    /* body { Ou o elemento pai da div que você quer centralizar */
+        display: flex;
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center; /* Centraliza verticalmente */
+        min-height: 100vh; /* Garante que o body ocupa toda a altura da viewport */
+        margin: 0; /* Remove margens padrão do body para evitar deslocamentos */
+        background-image: url('campo.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+         background-position: center center;
+         background-attachment: fixed;
+      /* } */
+}
+
+.divUm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  background-color: rgb(126, 206, 108);
+  border: 1px solid rgb(18, 71, 42);
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+li{
+    padding: 10px;
+    list-style: none;
+}
+
+.listaUm{
+    display: flex;
+    flex-direction: row;
+    margin-right: 35px;
+   
+}
+
+
+.slogan{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: #0a5300;
+}
+
+h1 {
+font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  padding: 15px 0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
+}
+
+.listaUm button {
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Texto branco */
+    padding: 10px 15px; /* Espaçamento interno */
+    border: none; /* Remover borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mudar o cursor ao passar por cima */
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
+}
+
+.listaUm button:hover {
+    background-color: #367c39; /* Cor de fundo mais escura ao passar o mouse */
+}
