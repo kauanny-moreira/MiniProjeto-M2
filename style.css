@@ -1,16 +1,14 @@
 body{
-    /* body { Ou o elemento pai da div que você quer centralizar */
         display: flex;
-        justify-content: center; /* Centraliza horizontalmente */
-        align-items: center; /* Centraliza verticalmente */
-        min-height: 100vh; /* Garante que o body ocupa toda a altura da viewport */
-        margin: 0; /* Remove margens padrão do body para evitar deslocamentos */
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; 
+        margin: 0; 
         background-image: url('campo.png');
         background-repeat: no-repeat;
         background-size: cover;
          background-position: center center;
          background-attachment: fixed;
-      /* } */
 }
 
 .divUm{
@@ -19,7 +17,8 @@ body{
     justify-content: center;
     align-items: center;
     padding: 10px;
-  background-color: rgb(126, 206, 108);
+  
+  background-image: url('fundo.png');
   border: 1px solid rgb(18, 71, 42);
   border-radius: 10px;
   position: absolute;
@@ -59,14 +58,14 @@ font-family: 'Bebas Neue', cursive;
 }
 
 .listaUm button {
-    background-color: #4CAF50; /* Cor de fundo verde */
-    color: white; /* Texto branco */
-    padding: 10px 15px; /* Espaçamento interno */
-    border: none; /* Remover borda padrão */
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer; /* Mudar o cursor ao passar por cima */
+    background-color: #327535; 
+    color: white;
+    padding: 10px 15px;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
     font-size: 16px;
-    transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
+    transition: #153e17 0.3s ease;
 }
 
 .listaUm button:hover {
