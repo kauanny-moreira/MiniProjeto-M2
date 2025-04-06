@@ -1,60 +1,142 @@
-// Cadastro de jogadores de futebol numa liga de futebol
-
-// const paragrafo = document.createElement("p");
-// // adicionando ao body
-// document.body.appendChild(paragrafo);
-// paragrafo.innerText = "Texto alterado pelo JavaScript!"
-
-    const nomeInput = document.getElementById('nome');
-const dataNascimentoInput = document.getElementById('dataNascimento');
-const timeInput = document.getElementById('time');
-const enderecoInput = document.getElementById('endereco');
-const telefoneContatoInput = document.getElementById('telefoneContato');
-const cpfInput = document.getElementById('cpf');
-
 const jogadores = [];
 
-
-class Jogador{
-    constructor (nome, dataDeNasciemnto, time, endereco, telefoneContato, cpf) {
+class Jogador {
+    constructor(nome, dataDeNascimento, time, endereco, telefoneContato, cpf) {
         this.nome = nome;
         this.dataDeNascimento = dataDeNascimento;
         this.time = time;
         this.endereco = endereco;
         this.telefoneContato = telefoneContato;
         this.cpf = cpf;
-    } 
-    exibirInformacoes() {
-        return `Nome: ${this.nome}, Data de Nascimento: ${this.dataDeNascimento}, Time: ${this.time}, Endereço: ${this.endereco}, Telefone: ${this.telefoneContato}, CPF: ${this.cpf}`;
-    }}
-
-
-    function cadastrarJogador() {
-        // Obter os valores dos inputs usando a propriedade .value
-        const nome = nomeInput.value;
-        const dataDeNascimento = dataNascimentoInput.value;
-        const time = timeInput.value;
-        const endereco = enderecoInput.value;
-        const telefoneContato = telefoneContatoInput.value;
-        const cpf = cpfInput.value;
-        const jogadorUm = new Jogador (nome, dataDeNascimento, time, endereco, telefoneContato, cpf);
-        exibirListaJogadores();
     }
- 
-    function exibirListaJogadores() {
-        // Limpar a lista existente na tela
-        listaJogadores.innerHTML = '';
-    
-        // Iterar sobre o array 'jogadores' e criar um item de lista para cada jogador
-        jogadores.forEach((jogador, index) => {
-            const item = document.createElement('li');
-            Item.textContent = jogador.exibirInformacoes();
-            listaJogadores.appendChild(item);
-        });
-    }
-
- const botaoCadastro = document.getElementById('botaoCadastro');
-if (botaoCadastro) {
-    botaoCadastro.addEventListener('click', cadastrarJogador);
 }
-exibirListaJogadores();
+
+const nomeInput = document.getElementById('nome');
+const dataNascimentoInput = document.getElementById('dataNascimento');
+const timeInput = document.getElementById('time');
+const enderecoInput = document.getElementById('endereco');
+const telefoneContatoInput = document.getElementById('telefoneContato');
+const cpfInput = document.getElementById('cpf');
+const btnSave = document.getElementById("btn-save");
+const btnList = document.getElementById("btn-list");
+const containerList = document.getElementById("container-jogadores");
+const ulListJogadores = document.getElementById("jogadoresCadastrados");
+// const btnEdit = document.createElement("button");
+// const btnDelete = document.createElement("button");
+
+
+btnSave.addEventListener("click", () => {
+    const jogador = {
+        nome: nomeInput.value,
+        dataDeNascimento: dataNascimentoInput.value,
+        time: timeInput.value,
+        endereco: enderecoInput.value,
+        telefoneContato: telefoneContatoInput.value,
+        cpf: cpfInput.value
+    };
+
+    jogadores.push(jogador);
+    alert("Jogadora cadastrado com sucesso. Clique para listar.");
+    limparFormulario();
+
+});
+
+btnList.addEventListener("click", listCadastros);
+
+
+function listCadastros() {
+    ulListJogadores.innerHTML = '';
+    for (let i = 0; i < jogadores.length; i++) {
+        createList(i, jogadores[i].nome, jogadores[i].dataDeNascimento, jogadores[i].time, jogadores[i].endereco, jogadores[i].telefoneContato, jogadores[i].cpf);
+    }
+}
+// function listCadastros() {
+//     ulListJogadores.innerHTML = '';
+//  for (let i = 0; i < jogadores.length; i++) {
+//         createList(index, jogadores.nome, jogadores.dataDeNascimento, jogadores.time, jogadores.endereco, jogadores.telefoneContato, jogadores.cpf);
+//     };
+// }
+
+
+
+function createList(index, nome, dataDeNascimento, time, endereco, telefoneContato, cpf) {
+    const btnDelete = document.createElement("button");
+    const btnEdit = document.createElement("button")
+
+    const listItem = document.createElement("li");
+    listItem.classList.add("jogador-card");
+
+    const nomeJogador = document.createElement("h3");
+    nomeJogador.classList.add("jogador-nome");
+    nomeJogador.innerHTML = nome;
+
+    const divInformacoes = document.createElement("div");
+    divInformacoes.classList.add("jogador-info");
+
+    const dataNascimentoJogador = document.createElement("p");
+    dataNascimentoJogador.classList.add("data");
+    dataNascimentoJogador.innerHTML = `Data de Nascimento: ${dataNascimento}`;
+
+    const timeJogador = document.createElement("p");
+    timeJogador.classList.add("time");
+    timeJogador.innerHTML = `Time: ${time}`;
+
+    const enderecoJogador = document.createElement("p");
+    enderecoJogador.classList.add("endereco");
+    enderecoJogador.innerHTML = `Endereço: ${endereco}`;
+
+    const telefoneContatoJogador = document.createElement("p");
+    telefoneContatoJogador.classList.add("telefone");
+    telefoneContatoJogador.innerHTML = `Telefone: ${telefoneContato}`;
+
+    const cpfJogador = document.createElement("p");
+    cpfJogador.classList.add("cpf");
+    cpfJogador.innerHTML = `CPF: ${cpf}`;
+
+    btnEdit.innerHTML = 'Editar';
+    btnDelete.innerHTML = 'Deletar';
+
+
+    
+    btnEdit.addEventListener("click", () => {
+
+        jogadores[index].nome = nomeInput.value.trim() || jogadores[index].nome;
+        jogadores[index].dataDeNascimento = dataNascimentoInput.value.trim() || jogadores[index].dataDeNascimento;
+        jogadores[index].time = timeInput.value.trim()|| jogadores[index].time;
+        jogadores[index].endereco = enderecoInput.value.trim() || jogadores[index].endereco;
+        jogadores[index].telefoneContato = telefoneContatoInput.value.trim() || jogadores[index].telefoneContato;
+        jogadores[index].cpf = cpfInput.value.trim() || jogadores[index].cpf;
+        listCadastros();
+        limparFormulario();
+
+    });
+
+    
+    btnDelete.addEventListener("click", () => {
+        jogadores.splice(index, 1);
+        listCadastros();
+    });
+
+    divInformacoes.appendChild(dataNascimentoJogador);
+    divInformacoes.appendChild(timeJogador);
+    divInformacoes.appendChild(enderecoJogador);
+    divInformacoes.appendChild(telefoneContatoJogador);
+    divInformacoes.appendChild(cpfJogador);
+    divInformacoes.appendChild(btnEdit);
+    divInformacoes.appendChild(btnDelete);
+
+    listItem.appendChild(nomeJogador);
+    listItem.appendChild(divInformacoes);
+
+
+    ulListJogadores.appendChild(listItem);
+}
+
+function limparFormulario() {
+    nomeInput.value = "";
+    dataNascimentoInput.value = "";
+    timeInput.value = "";
+    enderecoInput.value = "";
+    telefoneContatoInput.value = "";
+    cpfInput.value = "";
+}

@@ -1,4 +1,7 @@
-body{
+
+
+
+ body{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -65,9 +68,118 @@ font-family: 'Bebas Neue', cursive;
     border-radius: 5px; 
     cursor: pointer; 
     font-size: 16px;
-    transition: #153e17 0.3s ease;
+    transition: #179bcb 0.3s ease;
 }
 
 .listaUm button:hover {
-    background-color: #367c39; /* Cor de fundo mais escura ao passar o mouse */
+    background-color:#007bff;
+}
+
+
+
+#containerCadastro {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 80%;
+}
+
+#tituloLista{
+  font-family: 'Bebas Neue', cursive; 
+  color: #0C3001;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+  transition: color 0.3s ease;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #8FBC8F;
+  margin-bottom: 20px;
+}
+
+
+
+input {
+  padding: 10px;
+  margin-left: 25px;
+  margin-bottom: 3px;
+  border: 1px solid #116415;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  width: 80%;
+ 
+  
+}
+
+input:focus {
+  outline: none;
+  border-color: #086b26;
+}
+
+
+button {
+ background-color:#116415;
+ color: #fff;
+padding: 12px 20px;
+border: none;
+border-radius: 6px;
+font-size: 18px;
+cursor: pointer;
+width: 100%;
+transition: background-color 0.3s ease;
+margin-top: 10px;
+}
+  
+  button:hover{
+ background-color:#007bff;
+}
+
+#container-jogadores {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: 400px;
+  max-width: 90%;
+  margin-left: 60px;
+}
+
+#jogadoresCadastrados {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#jogadoresCadastrados li {
+  /* background-color: #fff; */
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#jogadoresCadastrados li:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+#jogadoresCadastrados li h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#jogadoresCadastrados li p {
+  margin-bottom: 5px;
+  color: #555;
+}
+
+#jogadoresCadastrados li p:last-child {
+  margin-bottom: 0;
 }
